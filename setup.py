@@ -9,8 +9,8 @@ setup(
     description=(
         'utils'
     ),
-    long_description=open('README.rst').read(),
     author='liyuhao',
+    author_email='1241225413@qq.com',
     license='Apache License 2.0',
     packages=find_packages(),
     url='https://github.com/hgliyuhao/flower',
