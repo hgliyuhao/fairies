@@ -13,10 +13,8 @@ setup(
     author='liyuhao',
     license='Apache License 2.0',
     packages=find_packages(),
-    platforms=["all"],
-    url='<项目的网址，我一般都是github的url>',
+    url='https://github.com/hgliyuhao/flower',
     install_requires=[
-        'numpy',
-        'pandas',
+        'pdfminer3k'
     ],
 )
