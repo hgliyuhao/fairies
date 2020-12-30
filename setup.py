@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='flowers',
-    version='0.1.1',
+    version='0.1.2',
     description=(
         'utils'
     ),
@@ -15,6 +15,7 @@ setup(
     packages=find_packages(),
     url='https://github.com/hgliyuhao/flower',
     install_requires=[
-        'pdfminer3k'
+        'pdfminer3k',
+        'requests'
     ],
 )

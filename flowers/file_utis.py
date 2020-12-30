@@ -1,6 +1,6 @@
 import json
-
-
+import os
+import requests
 
 def write_json(filename,res):
     json_str = json.dumps(res,ensure_ascii=False,indent=4)
@@ -49,4 +49,12 @@ def get_file_size(fileName):
 
 def get_file_list(file_path):
     # 获取文件列表
-    return os.listdir(file_path)        
+    return os.listdir(file_path)
+
+def download_pdf(fileName):
+    # 下载pdf
+    requests_pdf_url = fileName
+    r = requests.get(requests_pdf_url)
+    filename = fileName.replace('http://','').replace('/','')
+    with open(filename, 'wb+') as f:
+        f.write(r.content)
