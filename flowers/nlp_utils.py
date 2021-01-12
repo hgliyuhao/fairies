@@ -6,6 +6,7 @@ def split_to_paragraph(content, filter_length=(2, 1000)):
     """
         拆分成段落
     """
+    
     content = re.sub(r"\s*", "", content)
     content = re.sub("([。！…？?!；;])", "\\1\1", content)
     sents = content.split("\1")
@@ -100,6 +101,22 @@ def isHasMark(text):
     return False
 
 def label2id(labels):
+    """
+    return: id2label,label2id 
+    """
+
     id2label = dict(enumerate(labels))
     label2id = {j: i for i, j in id2label.items()}
     return id2label,label2id      
+
+def is_chinese(string):
+    """
+    检查整个字符串是否包含中文
+    :param string: 需要检查的字符串
+    :return: bool
+    """
+    for ch in string:
+        if u'\u4e00' <= ch <= u'\u9fff':
+            return True
+
+    return False
