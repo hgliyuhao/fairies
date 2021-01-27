@@ -4,7 +4,7 @@ import urllib
 import random
 import json
 import time
-import file_utils
+from flowers import file_utils
 
 def zh_to_en(word_lists):
 

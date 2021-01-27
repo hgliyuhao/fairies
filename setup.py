@@ -4,8 +4,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='flowers',
-    version='0.1.3',
+    name='fairy',
+    version='0.1.4',
     description=(
         'utils'
     ),
@@ -16,6 +16,7 @@ setup(
     url='https://github.com/hgliyuhao/flower',
     install_requires=[
         'pdfminer3k',
-        'requests'
+        'requests',
+        'xlrd==1.2.0'
     ],
 )
