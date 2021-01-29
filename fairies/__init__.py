@@ -1,6 +1,4 @@
-import pandas
-
-from file_utils import (
+from fairies.file_utils import (
     write_json,
     read_json,
     write_txt,
@@ -14,15 +12,7 @@ from file_utils import (
     get_listdir
 )
 
-from extract_utils import (
-    read_pdf_by_box,
-    read_html,
-    read_pdf_by_line,
-    read_xml,
-    removeLineFeed
-)
-
-from nlp_utils import (
+from fairies.nlp_utils import (
     split_to_paragraph,
     split_to_sents,
     split_to_subsents,
@@ -33,12 +23,20 @@ from nlp_utils import (
     is_chinese
 )
 
-from translate import (
+from fairies.extract_utils import (
+    read_pdf_by_box,
+    read_html,
+    read_pdf_by_line,
+    read_xml,
+    removeLineFeed
+)
+
+from fairies.translate import (
     en_to_zh,
     zh_to_en
 )
 
-from excel_utils import (
+from fairies.excel_utils import (
     write_excel,
     read_excel
 )

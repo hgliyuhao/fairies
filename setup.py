@@ -4,10 +4,10 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='fairy',
+    name='fairies',
     version='0.1.4',
     description=(
-        'utils'
+        'utils for huahua and tingting'
     ),
     author='liyuhao',
     author_email='1241225413@qq.com',
@@ -17,6 +17,7 @@ setup(
     install_requires=[
         'pdfminer3k',
         'requests',
-        'xlrd==1.2.0'
+        'xlrd==1.2.0',
+        'jieba'
     ],
 )
