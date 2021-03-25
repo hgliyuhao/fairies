@@ -5,9 +5,9 @@ from setuptools import setup, find_packages
 
 setup(
     name='fairies',
-    version='0.1.4',
+    version='0.1.8',
     description=(
-        'utils for huahua and tingting'
+        'utils for huahua and xingxing and shengsheng'
     ),
     author='liyuhao',
     author_email='1241225413@qq.com',
@@ -18,6 +18,9 @@ setup(
         'pdfminer3k',
         'requests',
         'xlrd==1.2.0',
-        'jieba'
+        'jieba',
+        'xlwt',
+        'xlutils',
+        'beautifulsoup4'
     ],
 )

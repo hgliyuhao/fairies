@@ -16,11 +16,13 @@ from fairies.nlp_utils import (
     split_to_paragraph,
     split_to_sents,
     split_to_subsents,
+    jieba_init,
     jieba_add_words,
     jieba_cut,
     isHasMark,
     label2id,
-    is_chinese
+    is_chinese,
+    find_lcs
 )
 
 from fairies.extract_utils import (
@@ -41,3 +43,6 @@ from fairies.excel_utils import (
     read_excel
 )
 
+from fairies.decorator_utils import(
+    clock
+)

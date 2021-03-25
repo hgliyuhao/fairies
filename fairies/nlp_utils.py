@@ -65,6 +65,14 @@ def removeLineFeed(text):
     k = text.replace('\r','').replace('\n','').replace('\t',' ')
     return k
 
+def jieba_init():
+    
+    """
+        初始化jieba分词字典 提前加载,不会在调用时再加载
+    """
+    
+    jieba.initialize()
+
 def jieba_cut(text):
     
     """
@@ -120,3 +128,18 @@ def is_chinese(string):
             return True
 
     return False
+
+def find_lcs(s1, s2):
+    """find the longest common subsequence between s1 ans s2"""
+    """公共子串"""
+    m = [[0 for i in range(len(s2)+1)] for j in range(len(s1)+1)]
+    max_len = 0
+    p = 0
+    for i in range(len(s1)):
+        for j in range(len(s2)):
+            if s1[i] == s2[j]:
+                m[i+1][j+1] = m[i][j]+1
+                if m[i+1][j+1] > max_len:
+                    max_len = m[i+1][j+1]
+                    p = i+1
+    return s1[p-max_len:p], max_len    

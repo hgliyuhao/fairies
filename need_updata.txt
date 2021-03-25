@@ -1,0 +1,6 @@
+update num
+需要增加不指定名字默认打开第一个表
+
+python setup.py sdist bdist_wheel
+
+twine upload dist/*

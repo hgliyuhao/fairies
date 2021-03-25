@@ -274,7 +274,7 @@ def read_html(fileName):
                     temp = temp + k[1]
                     temp_title = temp_title + k[0]
             if k[0] == '':
-                if k[1][-1] == '。':
+                if k[1][-1] != '' and k[1][-1] == '。':
                     temp = temp + k[1]
                     temp = clean_data(temp)
                     temp_title = temp_title
