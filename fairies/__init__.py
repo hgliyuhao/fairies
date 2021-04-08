@@ -13,12 +13,6 @@ from fairies.file_utils import (
 )
 
 from fairies.nlp_utils import (
-    split_to_paragraph,
-    split_to_sents,
-    split_to_subsents,
-    jieba_init,
-    jieba_add_words,
-    jieba_cut,
     isHasMark,
     label2id,
     is_chinese,
@@ -45,4 +39,26 @@ from fairies.excel_utils import (
 
 from fairies.decorator_utils import(
     clock
+)
+
+from fairies.nlp_jieba_utils import(
+    jieba_init,
+    jieba_add_words,
+    jieba_cut
+)
+
+from fairies.nlp_data_processing import(
+    text_len_analysis,
+    split_to_paragraph,
+    split_to_sents,
+    split_to_subsents
+)
+
+from fairies.nlp_clean_data import (
+    clean_data,
+    removeLineFeed
+)
+
+from fairies.print_utils import (
+    print_to_log
 )

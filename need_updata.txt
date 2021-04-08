@@ -1,6 +1,12 @@
 update num
 需要增加不指定名字默认打开第一个表
 
+需要增加直方图的处理方法
+
+需要思考性能
+
+增加写入log的工具
+
 python setup.py sdist bdist_wheel
 
 twine upload dist/*

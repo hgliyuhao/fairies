@@ -108,7 +108,6 @@ def an_garcode(dir_names):
             #如果已被正确识别为utf8编码时则不需再编码
             pass      
 
-
 def get_listdir(path):
     
     """
