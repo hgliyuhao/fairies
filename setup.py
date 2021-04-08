@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='fairies',
-    version='0.1.9',
+    version='0.1.10',
     description=(
         'utils for huahua and xingxing and shengsheng'
     ),

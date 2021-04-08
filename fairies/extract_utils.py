@@ -11,10 +11,10 @@ from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import LAParams, LTTextBox
 from pdfminer.pdfinterp import PDFTextExtractionNotAllowed
 import os
-from fairies import clean_data
-from fairies import isHasMark
-from fairies import split_to_sents
-from fairies import removeLineFeed
+from fairies.nlp_clean_data import clean_data
+from fairies.nlp_utils import isHasMark
+from fairies.nlp_data_processing import split_to_sents
+from fairies.nlp_clean_data import removeLineFeed
 from bs4 import BeautifulSoup
 from fairies import prefix
 

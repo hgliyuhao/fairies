@@ -1,3 +1,8 @@
+from fairies.nlp_clean_data import (
+    clean_data,
+    removeLineFeed
+)
+
 from fairies.file_utils import (
     write_json,
     read_json,
@@ -52,11 +57,6 @@ from fairies.nlp_data_processing import(
     split_to_paragraph,
     split_to_sents,
     split_to_subsents
-)
-
-from fairies.nlp_clean_data import (
-    clean_data,
-    removeLineFeed
 )
 
 from fairies.print_utils import (
