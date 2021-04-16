@@ -20,6 +20,22 @@ def text_len_analysis(texts):
     ax.hist(length, bins=10, color='blue', alpha=0.7)
     plt.show()
 
+def dict_bar(dicts):
+
+    # TODO 元素太多标签看不清
+
+    # 这两行代码解决 plt 中文显示的问题
+    plt.rcParams['font.sans-serif'] = ['SimHei']
+    plt.rcParams['axes.unicode_minus'] = False
+
+    # 字典转元组
+    x = tuple(dicts)
+    y = tuple(dicts.values())
+
+    plt.bar(x, y, width= 1)
+    plt.show()
+
+
 def split_to_paragraph(content, filter_length=(2, 1000)):
 
     """
@@ -68,3 +84,8 @@ def split_to_subsents(content, filter_length=(2, 1000)):
     sents = [_[: filter_length[1]] for _ in sents]
     return [_ for _ in sents
             if filter_length[0] <= len(_) <= filter_length[1]]
+
+
+
+
+

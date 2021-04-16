@@ -3,11 +3,21 @@ import os
 import requests
 import zipfile
 import pandas as pd
+import codecs
 
-def write_json(filename,res):
-    json_str = json.dumps(res,ensure_ascii=False,indent=4)
-    with open(filename, 'w',encoding = 'utf-8') as json_file:
-                    json_file.write(json_str) 
+def write_json(filename,res,isIndent = True):
+    
+    if isIndent:
+        json_str = json.dumps(res,ensure_ascii=False,indent=4)
+        with open(filename, 'w',encoding = 'utf-8') as json_file:
+            json_file.write(json_str)
+    else:        
+        with codecs.open(filename, 'w', 'utf-8') as f:
+            for formatted_instance in res:
+                json_str = json.dumps(formatted_instance, ensure_ascii=False)
+                f.write(json_str)
+                f.write('\n')
+        f.close()
 
 def read_json(filename):
     try:

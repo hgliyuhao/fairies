@@ -21,7 +21,8 @@ from fairies.nlp_utils import (
     isHasMark,
     label2id,
     is_chinese,
-    find_lcs
+    find_lcs,
+    random_build_data
 )
 
 from fairies.extract_utils import (
@@ -56,7 +57,8 @@ from fairies.nlp_data_processing import(
     text_len_analysis,
     split_to_paragraph,
     split_to_sents,
-    split_to_subsents
+    split_to_subsents,
+    dict_bar
 )
 
 from fairies.print_utils import (

@@ -5,7 +5,12 @@ update num
 
 需要思考性能
 
-增加写入log的工具
+增加写入log的工具 需要提高log的能力
+
+update 直方图
+
+update json 格式 
+
 
 python setup.py sdist bdist_wheel
 

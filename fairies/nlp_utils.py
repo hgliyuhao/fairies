@@ -1,7 +1,9 @@
 import re
 import jieba
+import random
 
 def isMask(text):
+    
     # 判断该字符是否是标点符号
     mask_list = ["。","！","…","？","?","!","；",";","，"]
     if text in mask_list:
@@ -10,6 +12,7 @@ def isMask(text):
         return False   
 
 def isHasMark(text):
+    
     # 判断文本中是否有符号
     marks = ['。','！','…','？','?','!','；',';','，']
 
@@ -54,3 +57,26 @@ def find_lcs(s1, s2):
                     max_len = m[i+1][j+1]
                     p = i+1
     return s1[p-max_len:p], max_len    
+
+def random_build_data(all_data,percent):
+    
+    """
+        检查整个字符串是否包含中文
+        :param all_data: list 全部数据
+        :param percent: int 按照1：percent分配train_data和dev_data
+                        0.9 代表train_data和dev_data 比例 9:1
+        :return: train_data,dev_data
+    """
+    random.shuffle(all_data)
+
+    if percent < 1:
+        percent = int(1/(1-percent))
+        if percent > 1:
+            percent -= 1
+
+    train_data = [d for i, d in enumerate(all_data) if i %percent != 0]
+    dev_data = [d for i, d in enumerate(all_data) if i %percent == 0]
+
+    return train_data,dev_data
+
+
