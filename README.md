@@ -1,7 +1,9 @@
 # flower
 
 开始于砰然心动 
-放在心里就好
+
+# 安装
+pip install fairies
 
 * txt,json,excel处理函数
 - pdf抽取接口
@@ -12,7 +14,7 @@
 **find_lcs**
 查找公共子串  
 **random_build_data**
-按照比例切分数据集
+按照比例切分数据集  
 **removeLineFeed**
 清洗数据中的去除换行 tab键  
 **text_len_analysis**
