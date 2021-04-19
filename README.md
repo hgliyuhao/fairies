@@ -5,9 +5,12 @@
 # 安装
 pip install fairies
 
+# 主要功能
 * txt,json,excel处理函数
 - pdf抽取接口
 * nlp常用工具
+
+# 常用API
 
 **label2id**
 用于序列标注时标签和id相互转换  
