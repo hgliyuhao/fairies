@@ -86,6 +86,57 @@ def split_to_subsents(content, filter_length=(2, 1000)):
             if filter_length[0] <= len(_) <= filter_length[1]]
 
 
+def get_slide_window_text(text,maxlen,window):
 
+    """
+    使用移动窗口的方式分割text
+    基于','分割文本,尽可能保留更多完整的信息,而不是根据字数强行分割
+    
+    param text 需要处理的文本
+          maxlen 分割成文本的最大长度 需要小于1000
+          window 滑动窗口长度
+    """
+
+    lists = split_to_subsents(text)
+    lists_len = [len(i) for i in lists]
+
+    # 在滑动的时候尽量保存完整的信息
+    # 找到开始的位置
+
+    start = 0
+    sumTemp = 0
+
+    cut_list = []
+
+    for i in range(len(lists_len)):
+        if sumTemp + lists_len[i]< maxlen:
+            sumTemp += lists_len[i]
+        else:
+            if len(lists_len) > 1:
+                cut_list.append([start,max(i-1,start)])
+                sumTemp = sumTemp - lists_len[start]
+                start += 1
+                while sumTemp > maxlen - window :
+                    if start + 1 < i - 1:
+                        start += 1
+                        sumTemp = sumTemp - lists_len[start]
+                    else:
+                        start = max(i-1,start)
+                        sumTemp = lists_len[start]
+                        break
+                sumTemp += lists_len[i]
+
+        if i == len(lists_len) -1 :
+            cut_list.append([start,i])
+
+    res = [] 
+
+    for i in cut_list:
+        new = ''
+        for k in range(i[0],i[1]+1):
+            new += lists[k]
+        res.append(new)    
+
+    return res
 
 

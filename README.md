@@ -23,5 +23,12 @@ pip install fairies
 **text_len_analysis**
 分析数据中的文本长度  
 **split_to_paragraph**
-将文本切成句子  
+将文本切成句子
+**get_slide_window_text**  
+滑动窗口切割句子
+
+# 更新日志
+
+2021/4/21 添加get_slide_window_text方法,使用滑动窗口切割句子,用于处理nlp工作中超长文本的处理  
+
 

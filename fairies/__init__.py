@@ -58,7 +58,8 @@ from fairies.nlp_data_processing import(
     split_to_paragraph,
     split_to_sents,
     split_to_subsents,
-    dict_bar
+    dict_bar,
+    get_slide_window_text
 )
 
 from fairies.print_utils import (
