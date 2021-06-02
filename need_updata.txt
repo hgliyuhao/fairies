@@ -11,6 +11,7 @@ update 直方图
 
 update json 格式 需要思考性能
 
+重写resort函数
 
 python setup.py sdist bdist_wheel
 

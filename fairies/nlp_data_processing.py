@@ -140,3 +140,33 @@ def get_slide_window_text(text,maxlen,window):
     return res
 
 
+def get_cut_window_text(text,maxlen,window):
+    
+    """
+    使用截断的方式分割text
+    基于','分割文本,尽可能保留更多完整的信息,而不是根据字数强行分割
+    
+    param text 需要处理的文本
+          maxlen 分割成文本的最大长度 需要小于1000
+          window 滑动窗口长度
+    """
+    textlen = len(text)
+
+    start = 0
+    end = maxlen
+    lists = []
+
+    while end < textlen:
+        lists.append([start,end+1])
+        start += window
+        end += window
+
+    if start < textlen:
+        lists.append([start,textlen])
+
+    res = []
+
+    for i in lists:
+        res.append(text[i[0]:i[1]])
+
+    return res

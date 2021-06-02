@@ -35,7 +35,8 @@ from fairies.extract_utils import (
 
 from fairies.translate import (
     en_to_zh,
-    zh_to_en
+    zh_to_en,
+    translate
 )
 
 from fairies.excel_utils import (
@@ -59,7 +60,8 @@ from fairies.nlp_data_processing import(
     split_to_sents,
     split_to_subsents,
     dict_bar,
-    get_slide_window_text
+    get_slide_window_text,
+    get_cut_window_text
 )
 
 from fairies.print_utils import (
