@@ -1,6 +1,5 @@
-# flower
-
-始于砰然心动,终于芝兰之交
+# fairies  
+utils for nlp
 
 # 安装
 pip install fairies
