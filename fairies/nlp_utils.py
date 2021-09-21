@@ -1,6 +1,7 @@
 import re
 import jieba
 import random
+import datetime
 
 def isMask(text):
     
@@ -79,4 +80,36 @@ def random_build_data(all_data,percent):
 
     return train_data,dev_data
 
+def get_data_information(): 
 
+    """
+        获得时间信息
+    """
+
+    cur=datetime.datetime.now()
+    day = cur.day
+    month = cur.month
+    return day + '_' + month
+
+
+def long_substr(data):
+    
+    """
+        输入数组,输出多个字符传的公共子串
+    """
+    
+    substr = ''
+    if len(data) > 1 and len(data[0]) > 0:
+        for i in range(len(data[0])):
+            for j in range(len(data[0])-i+1):
+                if j > len(substr) and is_substr(data[0][i:i+j], data):
+                    substr = data[0][i:i+j]
+    return substr
+
+def is_substr(find, data):
+    if len(data) < 1 and len(find) < 1:
+        return False
+    for i in range(len(data)):
+        if find not in data[i]:
+            return False
+    return True        

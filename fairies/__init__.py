@@ -1,6 +1,9 @@
 from fairies.nlp_clean_data import (
     clean_data,
-    removeLineFeed
+    removeLineFeed,
+    cht_2_chs, # 繁体到简体
+    chs_2_cht, # 简体到繁体
+    strQ2B,
 )
 
 from fairies.file_utils import (
@@ -22,7 +25,9 @@ from fairies.nlp_utils import (
     label2id,
     is_chinese,
     find_lcs,
-    random_build_data
+    random_build_data,
+    get_data_information,
+    long_substr
 )
 
 from fairies.extract_utils import (
@@ -51,7 +56,8 @@ from fairies.decorator_utils import(
 from fairies.nlp_jieba_utils import(
     jieba_init,
     jieba_add_words,
-    jieba_cut
+    jieba_cut,
+    find_co_occurrence_word
 )
 
 from fairies.nlp_data_processing import(
@@ -66,4 +72,10 @@ from fairies.nlp_data_processing import(
 
 from fairies.print_utils import (
     print_to_log
+)
+
+from fairies.knowledge import(
+    get_tongyin,
+    get_tongxing,
+    get_hanzi
 )

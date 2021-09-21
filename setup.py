@@ -5,15 +5,15 @@ from setuptools import setup, find_packages
 
 setup(
     name='fairies',
-    version='0.1.14',
+    version='0.1.20',
     description=(
-        'utils for huahua and xingxing and shengsheng'
+        'utils for nlp'
     ),
     author='liyuhao',
     author_email='1241225413@qq.com',
     license='Apache License 2.0',
     packages=find_packages(),
-    url='https://github.com/hgliyuhao/flower',
+    url='https://github.com/hgliyuhao',
     install_requires=[
         'pdfminer3k',
         'requests',
