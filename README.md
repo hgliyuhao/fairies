@@ -1,8 +1,8 @@
-# fairies  
+# itachi 
 utils for nlp
 
 # 安装
-pip install fairies
+pip install itachi 
 
 # 主要功能
 * txt,json,excel处理函数
@@ -36,9 +36,7 @@ pip install fairies
 
 # 更新日志
 
-2021/9/21 添加简体到繁体, 全角转半角,多个字符的公共子串,添加同音,同形,以及汉字字表
-2021/6/2 添加find_co_occurrence_word方法,通过统计词语的共现次数,寻找关键词  
-2021/6/2 添加get_cut_window_text方法,使用截断的方法切割句子,用于处理nlp工作中超长文本的处理  
-2021/4/21 添加get_slide_window_text方法,使用滑动窗口切割句子,用于处理nlp工作中超长文本的处理    
+2021/11/26 整合read方法 
+  
 
 

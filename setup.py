@@ -4,8 +4,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='fairies',
-    version='0.1.20',
+    name='itachi',
+    version='0.1.0',
     description=(
         'utils for nlp'
     ),
@@ -15,13 +15,8 @@ setup(
     packages=find_packages(),
     url='https://github.com/hgliyuhao',
     install_requires=[
-        'pdfminer3k',
-        'requests',
         'xlrd==1.2.0',
-        'jieba',
         'xlwt',
-        'xlutils',
-        'beautifulsoup4',
-        'matplotlib'
+        'xlutils'
     ],
 )
