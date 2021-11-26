@@ -1,0 +1,10 @@
+README.md
+setup.py
+Sectumsempra/__init__.py
+Sectumsempra/read.py
+Sectumsempra/write.py
+Sectumsempra.egg-info/PKG-INFO
+Sectumsempra.egg-info/SOURCES.txt
+Sectumsempra.egg-info/dependency_links.txt
+Sectumsempra.egg-info/requires.txt
+Sectumsempra.egg-info/top_level.txt

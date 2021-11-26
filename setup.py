@@ -4,7 +4,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='itachi',
+    name='Sectumsempra',
     version='0.1.0',
     description=(
         'utils for nlp'
