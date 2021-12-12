@@ -1,8 +1,8 @@
-# itachi 
+# Sectumsempra 
 utils for nlp
 
 # 安装
-pip install itachi 
+pip install Sectumsempra
 
 # 主要功能
 * txt,json,excel处理函数

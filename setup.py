@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='Sectumsempra',
-    version='0.1.0',
+    version='0.1.3',
     description=(
         'utils for nlp'
     ),
@@ -17,6 +17,7 @@ setup(
     install_requires=[
         'xlrd==1.2.0',
         'xlwt',
-        'xlutils'
+        'xlutils',
+        'numpy'
     ],
 )

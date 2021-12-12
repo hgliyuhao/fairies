@@ -4,5 +4,6 @@ from Sectumsempra.read import (
 
 from Sectumsempra.write import (
     write_json,
-    write_txt
+    write_txt,
+    write_npy
 )

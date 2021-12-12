@@ -5,11 +5,13 @@ from tqdm import tqdm
 import xlrd
 import xlwt
 from xlutils.copy import copy
+import numpy as np
 
 
 class read_data():
 
-    def __init__(   
+    def __init__(
+
             self,
             fileName,
             table_name = "",
@@ -21,6 +23,7 @@ class read_data():
         self.table_name = table_name
         self.isWithTitle = isWithTitle
         self.res = []
+        self.head = {}
 
         # TODO
         # 判断fileName在不在
@@ -32,12 +35,13 @@ class read_data():
         elif fileName.endswith('.csv'):
             self.res = self.read_csv()
         elif fileName.endswith('.xlsx'):
-            self.res = self.read_excel()    
-
+            self.res = self.read_excel()
+        elif fileName.endswith('.npy'):
+            self.res = self.read_npy()      
         else:
             raise ValueError(
-                "The format of the read file can only be JSON, TXT, CSV, XLSX"
-            )          
+                "The format of the read file can only be JSON, TXT, CSV, XLSX, NPY"
+            )
 
     def read_txt(self):
         
@@ -101,7 +105,11 @@ class read_data():
                 res.append(l)
         return res        
     
+    def read_npy(self):
+
+        dict_load=np.load(self.fileName, allow_pickle=True)
+        return dict_load.tolist()
+
 def read(fileName):
     return read_data(fileName).res
-
 
