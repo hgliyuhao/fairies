@@ -6,12 +6,12 @@ pip install Sectumsempra
 
 # 主要功能
 * txt,json,excel处理函数
-- pdf抽取接口
+<!-- - pdf抽取接口 -->
 * nlp常用工具
 
 # 常用API
 
-**label2id**
+<!-- **label2id**
 用于序列标注时标签和id相互转换  
 **find_lcs**
 查找公共子串  
@@ -32,11 +32,12 @@ pip install Sectumsempra
 **strQ2B**
 全角转半角  
 **long_substr**
-多个字符的公共子串  
+多个字符的公共子串   -->
 
 # 更新日志
 
-2021/11/26 整合read方法 
+2021/12/23 新增random_split_data方法 用来快速划分数据集
+2021/11/26 整合read方法 优化读写速度
   
 
 
