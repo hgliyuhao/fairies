@@ -110,6 +110,46 @@ class read_data():
         dict_load=np.load(self.fileName, allow_pickle=True)
         return dict_load.tolist()
 
+
 def read(fileName):
     return read_data(fileName).res
 
+
+def read_json(filename):
+    
+    try:
+        with open(filename,'r', encoding='utf8') as f:
+            json_data = json.load(f)
+    except:
+        json_data = []
+        with open(filename,encoding='utf-8') as f:
+            for line in tqdm(f):
+                json_data.append(json.loads(line))        
+        return json_data    
+
+def read_txt(fileName):
+
+    """
+        读取txt文件
+    """
+
+    res = []
+    with open(fileName, "r" ,encoding='utf8') as f:
+        data = f.readlines()
+        for d in tqdm(data):
+            res.append(d)
+
+    return res     
+
+def read_csv(fileName):
+    res = []
+    with open(fileName,encoding='utf-8') as f:
+        reader = csv.reader(f)
+        for l in tqdm(reader):
+            res.append(l)
+    return res        
+    
+def read_npy(fileName):
+
+    dict_load=np.load(fileName, allow_pickle=True)
+    return dict_load.tolist()
