@@ -2,13 +2,32 @@ import re
 import matplotlib.mlab as mlab  
 import matplotlib.pyplot as plt  
 
+def text_len_analysis(texts):
+    
+    """
+        可视化文本长度
+        param texts 需要分析的文本数组
+    
+    """
+
+    length = []
+
+    for i in texts:
+        length.append(len(i))
+    
+    fig = plt.figure()
+    # plt.title('log')
+    ax = fig.add_subplot()
+    ax.hist(length, bins=10, color='blue', alpha=0.7)
+    plt.show()
+
 def label2id(labels):
     
     """
         return: id2label,label2id 
     """
 
-    id2label = dict(enumerate(labels))
+    id2label = dict(enumerate(sorted(labels)))
     label2id = {j: i for i, j in id2label.items()}
     return id2label,label2id
 

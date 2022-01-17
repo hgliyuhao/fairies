@@ -3,9 +3,9 @@ import codecs
 import numpy as np
 from tqdm import tqdm
 
-def write_json(filename,res,isIndent = False, isLine = True):
+def write_json(filename,res,isIndent = False, isLine = False):
     
-    if not isLine and not isinstance(res,dict) and not isinstance(res,list):
+    if not isLine and (isinstance(res,dict) or isinstance(res,list)):
         if isIndent:
             json_str = json.dumps(res,ensure_ascii=False,indent=4)
             with open(filename, 'w',encoding = 'utf-8') as json_file:
