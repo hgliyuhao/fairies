@@ -31,7 +31,7 @@ def jieba_add_words(lists):
 
 def find_co_occurrence_word(texts,nums = 10):
 
-    """
+    """根据词频寻找关键词
         texts 切分的文本列表
         nums 关键词数量 默认为10
     """

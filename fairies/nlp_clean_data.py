@@ -8,12 +8,14 @@ def removeLineFeed(text):
     return k
 
 def cht_2_chs(line):
+    """转换繁体到简体"""
     line = Converter('zh-hans').convert(line)
     line.encode('utf-8')
     return line
 
 # 转换简体到繁体
 def chs_2_cht(sentence):
+    """转换简体到繁体"""
     sentence = Converter('zh-hant').convert(sentence)
     return sentence
 
