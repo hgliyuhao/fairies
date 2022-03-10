@@ -14,7 +14,9 @@ from fairies.write import (
 
 from fairies.classification_utils import (
     random_split_data,
-    count_label
+    count_label,
+    split_data,
+    analysis_res
 )
 
 from fairies.nlp_utils import (
