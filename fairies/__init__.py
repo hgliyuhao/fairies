@@ -9,7 +9,8 @@ from fairies.read import (
 from fairies.write import (
     write_json,
     write_txt,
-    write_npy
+    write_npy,
+    write_csv
 )
 
 from fairies.classification_utils import (

@@ -2,6 +2,7 @@ import json
 import codecs
 import numpy as np
 from tqdm import tqdm
+import csv
 
 def write_json(filename,res,isIndent = False, isLine = False):
     
@@ -44,3 +45,23 @@ def write_npy(fileName,lists):
     """
 
     np.save(fileName, lists)
+
+def write_csv(filename, data):
+    """
+        将数组的内容写到csv中
+        data格式：
+            data = [
+                        ['class','name','sex','height','year'],
+                        [1,'xiaoming','male',168,23],
+                        [2,'xiaohong','female',162,22],
+                        [3,'xiaozhang','female',163,21],
+                        [4,'xiaoli','male',158,21]
+                    ]
+    :param filename: 需要写入的csv文件路径
+    :param data:数组格式的文件内容
+    """
+    f = open(filename, 'w', encoding='utf-8', newline='')
+    writer = csv.writer(f)
+    for i in tqdm(data):
+        writer.writerow(i)
+    f.close()    

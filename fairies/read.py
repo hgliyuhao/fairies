@@ -6,6 +6,31 @@ import xlrd
 import xlwt
 from xlutils.copy import copy
 import numpy as np
+# import chardet
+# from chardet.universaldetector import UniversalDetector
+
+# TODO
+# import fairies as fa
+# import csv
+# from tqdm import tqdm
+# import chardet
+# from chardet.universaldetector import UniversalDetector
+
+# def get_encoding(file):
+#         detector = UniversalDetector()
+#         with open(file,'rb') as f:
+#             for line in f:
+#                 detector.feed(line)
+#                 if detector.done:
+#                     break
+#         detector.close()
+#         print(detector.result)        
+#         # return chardet.detect(f.read(1100))['encoding']
+
+# print(get_encoding("0325_3a_tj.csv"))
+
+
+
 
 
 class read_data():

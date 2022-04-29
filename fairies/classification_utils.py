@@ -121,36 +121,41 @@ def count_label(labels):
     result = Counter(labels)
     return(result)
 
-def analysis_res(y_true, y_pred,lable2name):
+def analysis_res(y_true, y_pred,label2name):
     
     """
         y_true = [0,0,1,2,1,0,2]
         y_pred = [0,1,1,1,1,2,2]
-        lable2name = {"0":体育,"1":"经济","2":"文化"}
-
-        {   
-            '体育': [1, 3, 0.33], 
-            '经济': [2, 2, 1.0], 
-            '文化': [1, 2, 0.5]}
-        }    
+        label2name = {"0":体育,"1":"经济","2":"文化"}
+        
     """
+
+    # 转移矩阵
+
     true,pred = {},{}
-    for lable in lable2name:
-        true[lable] = 0
-        pred[lable] = 0
+    transfer = {}
+
+    for label in label2name:
+        true[label] = 0
+        pred[label] = 0
+        transfer[label] = {}
+        for new_label in label2name:
+            transfer[label][label2name[new_label]] = 0
     for y in y_true:
         if y in true:
             true[y] += 1
     for i,p in enumerate(y_pred):
         if p == y_true[i]:
             pred[p] += 1
-    res = {}
-    for lable in lable2name:
-        if true[lable] == 0:
-            res[lable2name[lable]] = [0,0,0]
+        transfer[y_true[i]][label2name[p]] += 1
+    res,res_transfer = {},{}
+    for label in label2name:
+        if true[label] == 0:
+            res[label2name[label]] = [0,0,0]
         else:    
-            res[lable2name[lable]] = [pred[lable],true[lable],pred[lable]/true[lable]]
+            res[label2name[label]] = [pred[label],true[label],pred[label]/true[label]]
+        res_transfer[label2name[label]] = transfer[label]
+    return res,res_transfer
 
-    return res    
 
 
