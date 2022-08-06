@@ -3,14 +3,16 @@ from fairies.read import (
     read_json,
     read_txt,
     read_csv,
-    read_npy
+    read_npy,
+    read_orjson
 )
 
 from fairies.write import (
     write_json,
     write_txt,
     write_npy,
-    write_csv
+    write_csv,
+    write_orjson
 )
 
 from fairies.classification_utils import (

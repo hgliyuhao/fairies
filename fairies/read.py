@@ -6,6 +6,9 @@ import xlrd
 import xlwt
 from xlutils.copy import copy
 import numpy as np
+import orjson
+
+
 # import chardet
 # from chardet.universaldetector import UniversalDetector
 
@@ -78,17 +81,23 @@ class read_data():
 
         return res
 
+    # def read_json(self):
+        
+    #     try:
+    #         with open(self.fileName,'r', encoding='utf8') as f:
+    #             json_data = json.load(f)
+    #     except:
+    #         json_data = []
+    #         with open(self.fileName,encoding='utf-8') as f:
+    #             for line in tqdm(f):
+    #                 json_data.append(json.loads(line))        
+    #     return json_data    
+
     def read_json(self):
         
-        try:
-            with open(self.fileName,'r', encoding='utf8') as f:
-                json_data = json.load(f)
-        except:
-            json_data = []
-            with open(self.fileName,encoding='utf-8') as f:
-                for line in tqdm(f):
-                    json_data.append(json.loads(line))        
-        return json_data    
+        with open(self.fileName,'rb') as f:
+            json_data = orjson.loads(f.read())
+        return json_data
 
     def read_excel(self):
         
@@ -179,3 +188,9 @@ def read_npy(fileName):
 
     dict_load=np.load(fileName, allow_pickle=True)
     return dict_load.tolist()
+
+def read_orjson(fileName):
+        
+    with open(fileName,'rb') as f:
+        json_data = orjson.loads(f.read())
+    return json_data

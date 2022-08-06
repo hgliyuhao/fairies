@@ -3,6 +3,8 @@ import codecs
 import numpy as np
 from tqdm import tqdm
 import csv
+import orjson
+
 
 def write_json(filename,res,isIndent = False, isLine = False):
     
@@ -22,6 +24,12 @@ def write_json(filename,res,isIndent = False, isLine = False):
                 f.write(json_str)
                 f.write('\n')
         f.close()
+
+def write_orjson(fileName,res):
+    with open(fileName, 'wb') as json_file:
+        json_str = orjson.dumps(res)
+        json_file.write(json_str)
+    json_file.close()
 
 def write_txt(fileName,lists,model = 'normal'):
 
