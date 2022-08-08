@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='fairies',
-    version='0.1.31',
+    version='0.1.32',
     description=(
         'utils for nlp'
     ),

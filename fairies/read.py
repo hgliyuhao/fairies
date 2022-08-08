@@ -32,10 +32,6 @@ import orjson
 
 # print(get_encoding("0325_3a_tj.csv"))
 
-
-
-
-
 class read_data():
 
     def __init__(
@@ -95,9 +91,21 @@ class read_data():
 
     def read_json(self):
         
-        with open(self.fileName,'rb') as f:
-            json_data = orjson.loads(f.read())
-        return json_data
+        try:
+            with open(self.fileName,'rb') as f:
+                json_data = orjson.loads(f.read())
+            return json_data
+        except:    
+
+            try:
+                with open(self.fileName,'r', encoding='utf8') as f:
+                    json_data = json.load(f)
+            except:
+                json_data = []
+                with open(self.fileName,encoding='utf-8') as f:
+                    for line in tqdm(f):
+                        json_data.append(json.loads(line))        
+            return json_data   
 
     def read_excel(self):
         
