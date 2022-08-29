@@ -3,12 +3,8 @@ from collections import Counter
 import random
 import numpy as np
 
-def split_data(
-    all_data,
-    model = "smoothing_ratios",
-    test_size = 0.2
-):
-    
+
+def split_data(all_data, model="smoothing_ratios", test_size=0.2):
     """对多分类任务中，按照不同的方式划分数据集
     
     Parameters
@@ -33,7 +29,7 @@ def split_data(
     """
 
     labels = set()  #标签集合
-    label_count = {} #标签数量计算
+    label_count = {}  #标签数量计算
     label_lists = {}
     all_data_count = len(all_data)
 
@@ -51,18 +47,19 @@ def split_data(
     labels = list(set(labels))
     labels.sort()
 
-    train_id, dev_id = [],[]
-    train_data,dev_data = [],[] 
-    
+    train_id, dev_id = [], []
+    train_data, dev_data = [], []
+
     if model == "same_ratios":
         for label in label_count:
-        # 如果为0则不放入
+            # 如果为0则不放入
             need_size = int(test_size * label_count[label])
             indexs = random.sample(range(label_count[label]), need_size)
             dev_id.extend(list(np.asarray(label_lists[label])[indexs]))
 
     elif model == "smoothing_ratios":
-        label_count = sorted(label_count.items(),  key=lambda d: d[1], reverse=False)
+        label_count = sorted(
+            label_count.items(), key=lambda d: d[1], reverse=False)
         isLegal = False
         import collections
         label_count = collections.OrderedDict(label_count)
@@ -73,40 +70,44 @@ def split_data(
                 break
 
         if not isLegal:
-            raise ValueError(
-                "You Need More Data!"
-            )  
+            raise ValueError("You Need More Data!")
 
         for label in label_count:
-        # 如果为0则不放入
+            # 如果为0则不放入
 
             if label_count[label] < base:
                 need_size = int(test_size * label_count[label])
                 indexs = random.sample(range(label_count[label]), need_size)
                 dev_id.extend(list(np.asarray(label_lists[label])[indexs]))
             else:
-                need_size = int(test_size * (label_count[label] **0.5) * (base **0.5))
+                need_size = int(
+                    test_size * (label_count[label]**0.5) * (base**0.5))
                 indexs = random.sample(range(label_count[label]), need_size)
                 dev_id.extend(list(np.asarray(label_lists[label])[indexs]))
-                print(need_size)
     for data in all_data:
         id = data["id"]
         if id in dev_id:
             dev_data.append(data)
         else:
-            train_data.append(data)    
+            train_data.append(data)
 
-    return train_data,dev_data
+    return train_data, dev_data
 
-def random_split_data(all_data,label_name,test_size = 0.20,seed = 0):
+
+def random_split_data(all_data, label_name, test_size=0.20, seed=0):
 
     labels = []
     for line in all_data:
         labels.append(int(line[label_name]))
-    train_idx, test_idx, _, _ = train_test_split(range(len(labels)), labels, stratify=labels,
-                                                    shuffle=True, test_size=test_size, random_state=seed)
-    
-    train_data,test_data = [],[]
+    train_idx, test_idx, _, _ = train_test_split(
+        range(len(labels)),
+        labels,
+        stratify=labels,
+        shuffle=True,
+        test_size=test_size,
+        random_state=seed)
+
+    train_data, test_data = [], []
 
     for i in train_idx:
         train_data.append(all_data[i])
@@ -114,15 +115,16 @@ def random_split_data(all_data,label_name,test_size = 0.20,seed = 0):
     for i in test_idx:
         test_data.append(all_data[i])
 
-    return train_data,test_data    
+    return train_data, test_data
+
 
 def count_label(labels):
 
     result = Counter(labels)
-    return(result)
+    return (result)
 
-def analysis_res(y_true, y_pred,label2name):
-    
+
+def analysis_res(y_true, y_pred, label2name):
     """
         y_true = [0,0,1,2,1,0,2]
         y_pred = [0,1,1,1,1,2,2]
@@ -132,7 +134,7 @@ def analysis_res(y_true, y_pred,label2name):
 
     # 转移矩阵
 
-    true,pred = {},{}
+    true, pred = {}, {}
     transfer = {}
 
     for label in label2name:
@@ -144,18 +146,17 @@ def analysis_res(y_true, y_pred,label2name):
     for y in y_true:
         if y in true:
             true[y] += 1
-    for i,p in enumerate(y_pred):
+    for i, p in enumerate(y_pred):
         if p == y_true[i]:
             pred[p] += 1
         transfer[y_true[i]][label2name[p]] += 1
-    res,res_transfer = {},{}
+    res, res_transfer = {}, {}
     for label in label2name:
         if true[label] == 0:
-            res[label2name[label]] = [0,0,0]
-        else:    
-            res[label2name[label]] = [pred[label],true[label],pred[label]/true[label]]
+            res[label2name[label]] = [0, 0, 0]
+        else:
+            res[label2name[label]] = [
+                pred[label], true[label], pred[label] / true[label]
+            ]
         res_transfer[label2name[label]] = transfer[label]
-    return res,res_transfer
-
-
-
+    return res, res_transfer

@@ -4,15 +4,14 @@ stop_words = knowledge.get_stop_word()
 
 
 def jieba_init():
-    
     """
         初始化jieba分词字典 提前加载,不会在调用时再加载
     """
-    
+
     jieba.initialize()
 
+
 def jieba_cut(text):
-    
     """
         jieba分词普通模式
         传入text 返回list
@@ -22,15 +21,15 @@ def jieba_cut(text):
     for i in seg_list:
         res.append(i)
 
-    return res    
+    return res
+
 
 def jieba_add_words(lists):
     for i in lists:
         jieba.suggest_freq(i, True)
 
 
-def find_co_occurrence_word(texts,nums = 10):
-
+def find_co_occurrence_word(texts, nums=10):
     """根据词频寻找关键词
         texts 切分的文本列表
         nums 关键词数量 默认为10
@@ -46,7 +45,7 @@ def find_co_occurrence_word(texts,nums = 10):
                 else:
                     res[word] += 1
 
-    res = sorted(res.items(),key=lambda item:item[1],reverse = True)
+    res = sorted(res.items(), key=lambda item: item[1], reverse=True)
 
     pos = []
     for i in res[:nums]:
@@ -58,8 +57,8 @@ def find_co_occurrence_word(texts,nums = 10):
             if n in text:
                 count += 1
                 break
-    
-    print('关键词列表',pos)
-    print('覆盖率',count/len(texts))        
-    
+
+    print('关键词列表', pos)
+    print('覆盖率', count / len(texts))
+
     return pos

@@ -62,10 +62,11 @@ class Node(object):
         return chars != self.from_word[:-1]
 
     def __str__(self):
-        return '<Node, %s, %s, %s, %s>' % (repr(self.from_word),
-                                           repr(self.to_word), self.is_tail, self.have_child)
+        return '<Node, %s, %s, %s, %s>' % (repr(
+            self.from_word), repr(self.to_word), self.is_tail, self.have_child)
 
     __repr__ = __str__
+
 
 class ConvertMap(object):
     def __init__(self, name, mapping=None):
@@ -105,7 +106,8 @@ class ConvertMap(object):
         return len(self._map)
 
 
-class StatesMachineException(Exception): pass
+class StatesMachineException(Exception):
+    pass
 
 
 class StatesMachine(object):
@@ -172,8 +174,9 @@ class StatesMachine(object):
             self.state = START
             new = self.feed(char, map)
         elif self.state == FAIL:
-            raise StatesMachineException('Translate States Machine '
-                                         'have error with input data %s' % node)
+            raise StatesMachineException(
+                'Translate States Machine '
+                'have error with input data %s' % node)
         return new
 
     def __len__(self):
@@ -221,8 +224,10 @@ class Converter(object):
         self.final = UEMPTY
 
     def end(self):
-        self.machines = [fsm for fsm in self.machines
-                         if fsm.state == FAIL or fsm.state == END]
+        self.machines = [
+            fsm for fsm in self.machines
+            if fsm.state == FAIL or fsm.state == END
+        ]
         self._clean()
 
     def convert(self, string):
@@ -250,12 +255,10 @@ def run():
     import sys
     from optparse import OptionParser
     parser = OptionParser()
-    parser.add_option('-e', type='string', dest='encoding',
-                      help='encoding')
-    parser.add_option('-f', type='string', dest='file_in',
-                      help='input file (- for stdin)')
-    parser.add_option('-t', type='string', dest='file_out',
-                      help='output file')
+    parser.add_option('-e', type='string', dest='encoding', help='encoding')
+    parser.add_option(
+        '-f', type='string', dest='file_in', help='input file (- for stdin)')
+    parser.add_option('-t', type='string', dest='file_out', help='output file')
     (options, args) = parser.parse_args()
     if not options.encoding:
         parser.error('encoding must be set')
@@ -277,7 +280,8 @@ def run():
     c = Converter(options.encoding)
     for line in file_in:
         # print >> file_out, c.convert(line.rstrip('\n').decode(
-        file_out.write(c.convert(line.rstrip('\n').decode('utf8')).encode('utf8'))
+        file_out.write(
+            c.convert(line.rstrip('\n').decode('utf8')).encode('utf8'))
 
 
 if __name__ == '__main__':
