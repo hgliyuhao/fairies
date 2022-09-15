@@ -145,8 +145,12 @@ class read_data():
         return dict_load.tolist()
 
 
-def read(fileName):
-    return read_data(fileName).res
+def read(fileName,table_name=""):
+
+    if table_name == "":
+        return read_data(fileName).res
+    else:
+        return read_data(fileName,table_name).res
 
 
 def read_json(filename):

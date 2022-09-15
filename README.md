@@ -9,6 +9,19 @@
 
 pip install fairies
 
+
+# 使用  
+
+```python
+
+import fairies as fa
+
+# The format of the read file can be JSON, TXT, CSV, XLSX, NPY
+fileName = 'test.json'
+data = fa.read(fileName) 
+
+
+```
 <!-- # 常用API -->
 
 <!-- **label2id**
