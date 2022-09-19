@@ -16,9 +16,8 @@ from fairies.write import (
 )
 
 from fairies.classification_utils import (
-    random_split_data,
+    split_classification_data,
     count_label,
-    split_data,
     analysis_res
 )
 
