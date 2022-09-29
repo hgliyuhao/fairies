@@ -30,7 +30,6 @@ def split_classification_data(datas, test_size=0.1):
     for data in datas:
 
         label = data["label"]
-        text = data["sentence"]
 
         if label not in data_dicts:
             data_dicts[label] = []
