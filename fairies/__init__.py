@@ -12,6 +12,7 @@ from fairies.write import (
     write_txt,
     write_npy,
     write_csv,
+    write_excel,
     write_orjson
 )
 

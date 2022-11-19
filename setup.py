@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='fairies',
-    version='0.1.35',
+    version='0.1.36 ',
     description=(
         'utils for nlp'
     ),
@@ -22,6 +22,7 @@ setup(
         'matplotlib',
         'sklearn',
         'pandas',
-        'orjson'
+        'orjson',
+        'xlsxwriter'
     ],
 )
