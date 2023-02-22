@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='fairies',
-    version='0.1.36 ',
+    version='0.1.37',
     description=(
         'utils for nlp'
     ),
@@ -23,6 +23,7 @@ setup(
         'sklearn',
         'pandas',
         'orjson',
-        'xlsxwriter'
+        'xlsxwriter',
+        'scikit-learn'
     ],
 )
