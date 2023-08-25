@@ -7,7 +7,7 @@
 
 # 安装
 
-pip install fairies
+pip install fairies==0.2.0
 
 
 # 使用  
@@ -47,12 +47,7 @@ data = fa.read(fileName)
 **long_substr**
 多个字符的公共子串   -->
 
-# 更新
 
-2022/8/6 使用orjson代替json作为json的读写  
-2022/4/29 新增write_csv 用于写入csv文件  
-2021/12/23 新增random_split_data方法 用来快速划分数据集  
-2021/11/26 整合read方法 优化读写速度
   
 
 
