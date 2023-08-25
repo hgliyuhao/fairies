@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='fairies',
-    version='0.1.37',
+    version='0.2.0',
     description=(
         'utils for nlp'
     ),
@@ -16,14 +16,10 @@ setup(
     url='https://github.com/hgliyuhao/fairies',
     install_requires=[
         'xlrd==1.2.0',
-        'jieba',
         'xlwt',
         'xlutils',
-        'matplotlib',
-        'sklearn',
-        'pandas',
         'orjson',
         'xlsxwriter',
-        'scikit-learn'
+        'tqdm'
     ],
 )
